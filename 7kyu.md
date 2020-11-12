@@ -58,3 +58,43 @@ function filter_list(l) {
  return l.filter(v => typeof v == "number")
 }
 ///////////////////////////////////////
+
+##5 Isograms
+
+Problem: An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case.
+
+Example: 
+isIsogram("Dermatoglyphics") == true
+isIsogram("aba") == false
+isIsogram("moOse") == false // -- ignore letter case
+
+Solution:
+function isIsogram(str){
+  let letters = str.toLowerCase().split('')
+  let checkLetters = []
+  
+  letters.forEach(function(letter){
+    if(checkLetters.indexOf(letter) === -1) {
+      checkLetters.push(letter)
+    }
+  })
+  return letters.length === checkLetters.length ? true : false
+}
+///////////////////////////////////////
+
+##You're a Square
+
+Problem: Given an integral number, determine if it's a square number.
+
+Examples:
+-1  =>  false
+ 0  =>  true
+ 3  =>  false
+ 4  =>  true
+25  =>  true
+26  =>  false
+
+Solution: 
+const perfectSquare = (n) => {
+  return Math.sqrt(n) % 1 === 0;
+}
